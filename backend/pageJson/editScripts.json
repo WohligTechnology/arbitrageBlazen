@@ -1,0 +1,72 @@
+{
+    "title": "Edit Scripts",
+    "name": "Scripts",
+    "jsonPage": "viewScripts",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "Name",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
+        "name": "Annulized Return",
+        "type": "text",
+        "tableRef": "annulizedReturn",
+        "placeholder": "Enter annulizedReturn",
+        "id": "annulizedReturn",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
+        "name": "Monthly Return",
+        "type": "text",
+        "tableRef": "monthlyReturn",
+        "placeholder": "Enter monthlyReturn",
+        "id": "monthlyReturn",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
+        "name": "status",
+        "type": "tags",
+        "tableRef": "status",
+        "placeholder": "Enter status",
+        "id": "status",
+        "validation": ["", "trim", ""],
+        "dropDownField": "",
+        "dropDownType": "single",
+        "onView": true,
+        "dropDown": ["Enable","Disable"]
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitScripts",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewScripts"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewScripts"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Scripts/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "Scripts/getOne",
+        "params": "_id"
+    }
+
+}

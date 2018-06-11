@@ -10,9 +10,10 @@ myApp.controller('DashboardCtrl', function ($scope, TemplateService, NavigationS
     .controller('AccessController', function ($scope, TemplateService, NavigationService, $timeout, $state) {
         if ($.jStorage.get("accessToken")) {
 
-        } else {
-            $state.go("login");
-        }
+        } 
+        // else {
+        //     $state.go("login");
+        // }
     })
 
     .controller('JagzCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $interval) {

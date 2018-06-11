@@ -1,0 +1,96 @@
+{
+    "title": "Create Testimonial",
+    "name": "Testimonial",
+    "jsonPage": "viewTestimonial",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["Testimonial"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "name",
+        "validation": ["required", "trim", ""],
+        "url": ""
+    },{
+        "name": "Designation",
+        "type": "text",
+        "tableRef": "designation",
+        "placeholder": "Enter designation",
+        "id": "designation",
+        "validation": ["", "trim", ""]
+    },{
+        "name": "Company",
+        "type": "text",
+        "tableRef": "company",
+        "placeholder": "Enter company",
+        "id": "company",
+        "validation": ["", "trim", ""]
+    },{
+        "name": "Title",
+        "type": "text",
+        "tableRef": "title",
+        "placeholder": "Enter title",
+        "id": "title",
+        "validation": ["", "trim", ""]
+    }, {
+        "name": "Testimonial",
+        "type": "wysiwyg",
+        "tableRef": "testimonial",
+        "placeholder": "Enter testimonial",
+        "id": "testimonial",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
+        "name": "image",
+        "type": "image",
+        "tableRef": "image",
+        "placeholder": "Upload image",
+        "id": "image",
+        "view": true,
+        "disabled": true,
+        "validation": ["", "trim", ""]
+    }, {
+        "name": "sequence",
+        "type": "text",
+        "tableRef": "sequence",
+        "placeholder": "Enter sequence",
+        "id": "sequence",
+        "validation": ["", "trim", ""]
+    },{
+        "name": "status",
+        "type": "tags",
+        "tableRef": "status",
+        "placeholder": "Enter status",
+        "id": "status",
+        "validation": ["", "trim", ""],
+        "url": "",
+        "dropDownField": "",
+        "dropDownType": "single",
+        "onView": true,
+        "dropDown": ["Enable", "Disable"]
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitTestimonial",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewTestimonial"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewTestimonial"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Testimonial/save"
+    }
+}

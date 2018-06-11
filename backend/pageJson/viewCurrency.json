@@ -1,0 +1,42 @@
+{
+    "title": "Currency",
+    "description": "List of Currency ",
+    "pageType": "view",
+    "sendIdWithCreate": true,
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "isSort": "",
+        "tableRef": "name"
+    },{
+        "name": "Short Name",
+        "isSort": "",
+        "tableRef": "shortName"
+    }],
+    "action": [{
+        "name": "edit",
+        "icon": "fa-pencil",
+        "buttonClass": "btn-primary",
+        "type": "page",
+        "action": "editCurrency",
+        "fieldsToSend": {
+            "_id": "_id"
+        }
+    }, {
+        "name": "delete",
+        "icon": "fa-trash",
+        "buttonClass": "btn-danger",
+        "type": "apiCallConfirm",
+        "title": "Delete Currency",
+        "content": "Are you sure you want to delete Currency?",
+        "api": "Currency/delete",
+        "fieldsToSend": {
+            "name": "_id",
+            "value": "_id"
+        }
+    }],
+    "apiCall": {
+        "url": "Currency/search",
+        "params": "_id"
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "title": "Scripts",
+    "description": "List of Scripts",
+    "pageType": "view",
+    "sendIdWithCreate": true,
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "isSort": "",
+        "tableRef": "name"
+    },{
+        "name": "Annulized Return",
+        "isSort": "",
+        "tableRef": "annulizedReturn"
+    },{
+        "name": "Monthly Return",
+        "isSort": "",
+        "tableRef": "monthlyReturn"
+    },{
+        "name": "Status",
+        "isSort": "",
+        "tableRef": "status"
+    }],
+    "action": [{
+        "name": "edit",
+        "icon": "fa-pencil",
+        "buttonClass": "btn-primary",
+        "type": "page",
+        "action": "editScripts",
+        "fieldsToSend": {
+            "_id": "_id"
+        }
+    }, {
+        "name": "delete",
+        "icon": "fa-trash",
+        "buttonClass": "btn-danger",
+        "type": "apiCallConfirm",
+        "title": "Delete Scripts",
+        "content": "Are you sure you want to delete Scripts?",
+        "api": "Scripts/delete",
+        "fieldsToSend": {
+            "name": "_id",
+            "value": "_id"
+        }
+    }],
+    "apiCall": {
+        "url": "Scripts/search",
+        "params": "_id"
+    }
+}

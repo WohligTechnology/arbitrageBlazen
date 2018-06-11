@@ -1,0 +1,45 @@
+{
+    "title": "Edit Contact",
+    "name": "Contact",
+    "jsonPage": "viewContact",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Email",
+        "type": "text",
+        "tableRef": "email",
+        "placeholder": "Enter Email",
+        "id": "email",
+        "validation": ["", "trim", "unique"],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitContact",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewContact"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewContact"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Contact/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "Contact/getOne",
+        "params": "_id"
+    }
+
+}

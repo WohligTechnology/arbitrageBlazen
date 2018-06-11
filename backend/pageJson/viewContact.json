@@ -1,0 +1,38 @@
+{
+    "title": "Contact",
+    "description": "List of Contact Us",
+    "pageType": "view",
+    "sendIdWithCreate": true,
+    "urlFields": ["_id"],
+    "fields": [ {
+        "name": "Email",
+        "isSort": "",
+        "tableRef": "email"
+    }],
+    "action": [{
+        "name": "edit",
+        "icon": "fa-pencil",
+        "buttonClass": "btn-primary",
+        "type": "page",
+        "action": "editContact",
+        "fieldsToSend": {
+            "_id": "_id"
+        }
+    }, {
+        "name": "delete",
+        "icon": "fa-trash",
+        "buttonClass": "btn-danger",
+        "type": "apiCallConfirm",
+        "title": "Delete Contact",
+        "content": "Are you sure you want to delete Contact?",
+        "api": "Contact/delete",
+        "fieldsToSend": {
+            "name": "_id",
+            "value": "_id"
+        }
+    }],
+    "apiCall": {
+        "url": "Contact/search",
+        "params": "_id"
+    }
+}

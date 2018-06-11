@@ -1,0 +1,53 @@
+{
+    "title": "Edit Currency",
+    "name": "Currency",
+    "jsonPage": "viewCurrency",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "Name",
+        "validation": ["", "trim", ""],
+        "url": ""
+    },{
+        "name": "Short Name",
+        "type": "text",
+        "tableRef": "shortName",
+        "placeholder": "Enter shortName",
+        "id": "shortName",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitCurrency",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewCurrency"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewCurrency"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Currency/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "Currency/getOne",
+        "params": "_id"
+    }
+
+}

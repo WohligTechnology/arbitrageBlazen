@@ -1,0 +1,46 @@
+{
+    "title": "Create Currency",
+    "name": "Currency",
+    "jsonPage": "viewCurrency",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["Currency"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "name",
+        "validation": ["required", "trim", ""],
+        "url": ""
+    },{
+        "name": "Short Name",
+        "type": "text",
+        "tableRef": "shortName",
+        "placeholder": "Enter shortName",
+        "id": "shortName",
+        "validation": ["", "trim", ""]
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitCurrency",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewCurrency"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewCurrency"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Currency/save"
+    }
+}
