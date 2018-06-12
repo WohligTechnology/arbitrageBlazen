@@ -3,12 +3,12 @@ var schema = new Schema({
         type: String,
         required: true
     },
-    designation:String,
-    company:String,
-    title:String,
-    testimonial:String,
-    image:String,
-    sequence:Number,
+    designation: String,
+    company: String,
+    title: String,
+    testimonial: String,
+    image: String,
+    sequence: Number,
     status: {
         type: String,
         enum: ["Enable", "Disable"]
@@ -21,5 +21,17 @@ schema.plugin(timestamps);
 module.exports = mongoose.model('Testimonial', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
-var model = {};
+var model = {
+    findTestimonial: function (data, callback) {
+        Testimonial.find({}).sort({
+            sequence: -1
+        }).exec(function (err, data) {
+            if (err) {
+                callback(err, null);
+            } else {
+                callback(null, data);
+            }
+        });
+    }
+};
 module.exports = _.assign(module.exports, exports, model);

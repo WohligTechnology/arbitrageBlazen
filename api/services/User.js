@@ -78,7 +78,13 @@ var schema = new Schema({
         district: String,
         state: String,
         pincode: String
-    }]
+    }],
+    location: String,
+    otpTime: Date,
+    verifyAcc: {
+        type: String,
+        enum: ['true', 'false']
+    }
 });
 
 schema.plugin(deepPopulate, {
@@ -188,6 +194,84 @@ var model = {
      */
     getAllMedia: function (data, callback) {
 
-    }
+    },
+
+    /**
+     * This function register the user.
+     * @param {userId} data
+     * @param {callback} callback
+     * @returns  registered details.
+     */
+    registerUser: function (data, callback) {
+        var newUserDataToSave = new User();
+        newUserDataToSave.name = data.name;
+        newUserDataToSave.password = md5(data.password);
+        newUserDataToSave.accessToken = uid(16);
+        newUserDataToSave.email = data.email;
+        newUserDataToSave.dob = data.dob;
+        newUserDataToSave.gender = data.gender;
+        newUserDataToSave.save(function (err, data) {
+            if (err) {
+                callback(err);
+            } else {
+                callback(null, data);
+            }
+        });
+    },
+
+    checkUsersForOtp: function (data, callback) {
+        var Otp = (Math.random() + "").substring(2, 6);
+        User.findOne({
+            email: data.email,
+            password: md5(data.password)
+        }).exec(function (err, found) {
+            if (err) {
+                callback(err, null);
+            } else {
+
+                // async.waterfall([
+                //         function (callback) {
+                //             var saveOtpData = {};
+                //             saveOtpData._id = found._id;
+                //             saveOtpData.otp = Otp;
+                //             User.saveData(saveOtpData, callback)
+                //         },
+                //         function (userData, callback) {
+                //             // if (found.contact) {
+                //             //     var smsData = {};
+                //             //     smsData.mobile = found.contact;
+                //             //     smsData.content = " Please confirm the OTP " + Otp + " to complete your registration.";
+                //             //     console.log("*************************************************sms data from photographer***********************************************", smsData);
+                //             //     Config.sendSms(smsData, function (err, smsRespo) {
+                //             //         if (err) {
+                //             //             console.log("*************************************************sms gateway error in photographer***********************************************", err);
+                //             //         } else if (smsRespo) {
+                //             //             console.log(smsRespo, "*************************************************sms sent partyyy hupppieeee**********************************************");
+                //             //         } else {
+                //             //             console.log("invalid data")
+                //             //         }
+                //             //     });
+                //             // }
+                //         }
+                //     ],
+                //     callback);
+
+                callback(null, found);
+            }
+        });
+    },
+
+    verifyOTP: function (data, callback) {
+        User.findOne({
+            otp: data.otp
+        }).exec(function (err, found) {
+            if (err) {
+                callback(err, null);
+            } else {
+                callback(null, found);
+            }
+        });
+    },
+
 };
 module.exports = _.assign(module.exports, exports, model);

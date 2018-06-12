@@ -100,7 +100,46 @@ var controller = {
     },
     sendmail: function (req, res) {
         Config.sendEmail("chintan@wohlig.com", "jagruti@wohlig.com", "first email from endgrid", "", "<html><body>dome content</body></html>");
-    }
+    },
+
+    registerUser: function (req, res) {
+        if (req.body) {
+            User.registerUser(req.body, res.callback);
+        } else {
+            res.json({
+                value: false,
+                data: {
+                    message: "Invalid Request"
+                }
+            })
+        }
+    },
+
+    checkUsersForOtp: function (req, res) {
+        if (req.body) {
+            User.checkUsersForOtp(req.body, res.callback);
+        } else {
+            res.json({
+                value: false,
+                data: {
+                    message: "Invalid Request"
+                }
+            })
+        }
+    },
+
+    verifyOTP: function (req, res) {
+        if (req.body) {
+            User.verifyOTP(req.body, res.callback);
+        } else {
+            res.json({
+                value: false,
+                data: {
+                    message: "Invalid Request"
+                }
+            })
+        }
+    },
 
 };
 module.exports = _.assign(module.exports, controller);

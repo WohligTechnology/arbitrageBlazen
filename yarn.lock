@@ -5964,9 +5964,9 @@ qs@~6.3.0:
   version "6.3.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.3.2.tgz#e75bd5f6e268122a2a0e0bda630b2550c166502c"
 
-rand-token@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/rand-token/-/rand-token-0.3.0.tgz#32c0e672200867766a13601a21cef98ac67478c7"
+rand-token@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/rand-token/-/rand-token-0.4.0.tgz#1a565b6ad12d92dd4b30c4c4e5945e8aa24a5b3b"
 
 random-bytes@~1.0.0:
   version "1.0.0"

@@ -11,13 +11,13 @@ var schema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Currency"
     },
-    annulizedReturn:Number,
-    monthlyReturn:Number,
+    annulizedReturn: Number,
+    monthlyReturn: Number,
     status: {
         type: String,
         enum: ["Enable", "Disable"]
     },
-    sequence:Number
+    sequence: Number
 });
 
 schema.plugin(deepPopulate, {});
@@ -26,5 +26,17 @@ schema.plugin(timestamps);
 module.exports = mongoose.model('Scripts', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
-var model = {};
+var model = {
+    findScripts: function (data, callback) {
+        Scripts.find({}).sort({
+            sequence: -1
+        }).exec(function (err, data) {
+            if (err) {
+                callback(err, null);
+            } else {
+                callback(null, data);
+            }
+        });
+    }
+};
 module.exports = _.assign(module.exports, exports, model);
