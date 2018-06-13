@@ -3,19 +3,19 @@ var schema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Currency"
     },
-    quantity:Number,
-    systemAddress:String,
-    customerAddress:String,
-    transactionId:String,
-    commission:Number,
-    amountProvided:Number,
+    quantity: Number,
+    systemAddress: String,
+    customerAddress: String,
+    transactionId: String,
+    commission: Number,
+    amountProvided: Number,
     status: {
         type: String,
-        enum: ["Pending", "Canceled","Accepted"]
+        enum: ["Pending", "Canceled", "Accepted"]
     },
-    statusLog:[{
-        status:String,
-        timeStamp:Date
+    statusLog: [{
+        status: String,
+        timeStamp: Date
     }],
     type: {
         type: String,
@@ -29,5 +29,14 @@ schema.plugin(timestamps);
 module.exports = mongoose.model('Transaction', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
-var model = {};
+var model = {
+    createDepositTransaction: function (data, callback) {
+
+    },
+
+    createWithdrawalTransaction: function (data, callback) {
+
+    }
+
+};
 module.exports = _.assign(module.exports, exports, model);
