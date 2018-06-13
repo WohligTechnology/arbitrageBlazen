@@ -13,7 +13,7 @@
         "id": "Name",
         "validation": ["", "trim", ""],
         "url": ""
-    },{
+    }, {
         "name": "Annulized Return",
         "type": "text",
         "tableRef": "annulizedReturn",
@@ -21,7 +21,7 @@
         "id": "annulizedReturn",
         "validation": ["", "trim", ""],
         "url": ""
-    },{
+    }, {
         "name": "Monthly Return",
         "type": "text",
         "tableRef": "monthlyReturn",
@@ -29,17 +29,17 @@
         "id": "monthlyReturn",
         "validation": ["", "trim", ""],
         "url": ""
-    },{
-        "name": "status",
+    }, {
+        "name": "Status",
         "type": "tags",
         "tableRef": "status",
         "placeholder": "Enter status",
         "id": "status",
-        "validation": ["", "trim", ""],
+        "url": "",
         "dropDownField": "",
         "dropDownType": "single",
         "onView": true,
-        "dropDown": ["Enable","Disable"]
+        "dropDown": ["Enable", "Disable"]
     }],
     "action": [{
         "name": "submit",

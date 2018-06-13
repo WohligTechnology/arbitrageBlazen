@@ -13,21 +13,21 @@
         "id": "name",
         "validation": ["required", "trim", ""],
         "url": ""
-    },{
+    }, {
         "name": "Designation",
         "type": "text",
         "tableRef": "designation",
         "placeholder": "Enter designation",
         "id": "designation",
         "validation": ["", "trim", ""]
-    },{
+    }, {
         "name": "Company",
         "type": "text",
         "tableRef": "company",
         "placeholder": "Enter company",
         "id": "company",
         "validation": ["", "trim", ""]
-    },{
+    }, {
         "name": "Title",
         "type": "text",
         "tableRef": "title",
@@ -42,7 +42,7 @@
         "id": "testimonial",
         "validation": ["", "trim", ""],
         "url": ""
-    },{
+    }, {
         "name": "image",
         "type": "image",
         "tableRef": "image",
@@ -58,13 +58,12 @@
         "placeholder": "Enter sequence",
         "id": "sequence",
         "validation": ["", "trim", ""]
-    },{
-        "name": "status",
+    }, {
+        "name": "Status",
         "type": "tags",
         "tableRef": "status",
         "placeholder": "Enter status",
         "id": "status",
-        "validation": ["", "trim", ""],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",

@@ -8,7 +8,7 @@
         "name": "Name",
         "isSort": "",
         "tableRef": "name"
-    },{
+    }, {
         "name": "Short Name",
         "isSort": "",
         "tableRef": "shortName"
@@ -34,6 +34,13 @@
             "name": "_id",
             "value": "_id"
         }
+    }],
+    "button": [{
+        "name": "Create",
+        "icon": "plus",
+        "class": "btn-success",
+        "type": "page",
+        "action": "createCurrency"
     }],
     "apiCall": {
         "url": "Currency/search",

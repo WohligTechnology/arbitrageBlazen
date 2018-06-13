@@ -8,15 +8,15 @@
         "name": "Name",
         "isSort": "",
         "tableRef": "name"
-    },{
+    }, {
         "name": "Annulized Return",
         "isSort": "",
         "tableRef": "annulizedReturn"
-    },{
+    }, {
         "name": "Monthly Return",
         "isSort": "",
         "tableRef": "monthlyReturn"
-    },{
+    }, {
         "name": "Status",
         "isSort": "",
         "tableRef": "status"
@@ -42,6 +42,13 @@
             "name": "_id",
             "value": "_id"
         }
+    }],
+    "button": [{
+        "name": "Create",
+        "icon": "plus",
+        "class": "btn-success",
+        "type": "page",
+        "action": "createScripts"
     }],
     "apiCall": {
         "url": "Scripts/search",
